@@ -38,11 +38,11 @@ CLASSIFIERS = [
 
 
 setup(
-    name='djangocms-text-ckeditor',
+    name='djangocms-text-ckeditor-avryhof',
     version=__version__,
     author='Divio AG',
     author_email='info@divio.ch',
-    url='https://github.com/divio/djangocms-text-ckeditor',
+    url='https://github.com/avryhof/djangocms-text-ckeditor',
     license='BSD',
     description='Text Plugin for django CMS with CKEditor support',
     long_description=open('README.rst').read(),
