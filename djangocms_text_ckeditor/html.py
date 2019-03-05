@@ -18,36 +18,36 @@ from .sanitizer import TextSanitizer
 from .utils import plugin_to_tag
 
 
-def _filter_kwargs():
-    allowed_elements = frozenset(
-        ((namespaces['html'], 'cms-plugin'),),
-    )
-    try:
-        allowed_elements = getattr(sanitizer, 'allowed_elements')
-    except AttributeError:
-        pass
-
-    kwargs = {
-        'allowed_elements': allowed_elements | frozenset(
-            ((namespaces['html'], 'cms-plugin'),),
-        ),
-    }
-
-    if settings.TEXT_HTML_SANITIZE:
-        kwargs.update({
-            'allowed_elements': kwargs['allowed_elements'] | frozenset(
-                (namespaces['html'], tag)
-                for tag in settings.TEXT_ADDITIONAL_TAGS
-            ),
-            'allowed_attributes': sanitizer.allowed_attributes | frozenset(
-                (None, attr)
-                for attr in settings.TEXT_ADDITIONAL_ATTRIBUTES
-            ),
-            'allowed_protocols': sanitizer.allowed_protocols | frozenset(
-                settings.TEXT_ADDITIONAL_PROTOCOLS
-            ),
-        })
-    return kwargs
+# def _filter_kwargs():
+#     allowed_elements = frozenset(
+#         ((namespaces['html'], 'cms-plugin'),),
+#     )
+#     try:
+#         allowed_elements = getattr(sanitizer, 'allowed_elements')
+#     except AttributeError:
+#         pass
+#
+#     kwargs = {
+#         'allowed_elements': allowed_elements | frozenset(
+#             ((namespaces['html'], 'cms-plugin'),),
+#         ),
+#     }
+#
+#     if settings.TEXT_HTML_SANITIZE:
+#         kwargs.update({
+#             'allowed_elements': kwargs['allowed_elements'] | frozenset(
+#                 (namespaces['html'], tag)
+#                 for tag in settings.TEXT_ADDITIONAL_TAGS
+#             ),
+#             'allowed_attributes': sanitizer.allowed_attributes | frozenset(
+#                 (None, attr)
+#                 for attr in settings.TEXT_ADDITIONAL_ATTRIBUTES
+#             ),
+#             'allowed_protocols': sanitizer.allowed_protocols | frozenset(
+#                 settings.TEXT_ADDITIONAL_PROTOCOLS
+#             ),
+#         })
+#     return kwargs
 
 
 def _get_default_parser():
