@@ -19,7 +19,7 @@ from .utils import plugin_to_tag
 
 def _filter_kwargs():
     kwargs = {
-        'allowed_elements': sanitizer.allowed_elements | frozenset(
+        'allowed_elements': getattr(sanitizer, 'allowed_elements') | frozenset(
             ((namespaces['html'], 'cms-plugin'), ),
         ),
     }
