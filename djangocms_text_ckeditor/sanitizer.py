@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from html5lib.filters import sanitizer
+# from html5lib.filters import sanitizer
+from bleach._vendor.html5lib.filters import sanitizer
 
 
 class AllowTokenParser():
