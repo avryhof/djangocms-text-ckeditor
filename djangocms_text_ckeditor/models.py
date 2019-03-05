@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import bleach
 from django.db import models
 from django.utils.encoding import force_text, python_2_unicode_compatible
 from django.utils.html import strip_tags
@@ -64,7 +65,8 @@ class AbstractText(CMSPlugin):
         super(AbstractText, self).save(*args, **kwargs)
         body = self.body
         body = extract_images(body, self)
-        body = clean_html(body, full=False)
+        body = bleach.clean(body)
+        # body = clean_html(body, full=False)
         if settings.TEXT_AUTO_HYPHENATE:
             try:
                 body = hyphenate(body, language=self.language)
