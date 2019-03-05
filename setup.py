@@ -38,7 +38,7 @@ CLASSIFIERS = [
 
 
 setup(
-    name='djangocms-text-ckeditor-avryhof',
+    name='djangocms-text-ckeditor',
     version=__version__,
     author='Divio AG',
     author_email='info@divio.ch',

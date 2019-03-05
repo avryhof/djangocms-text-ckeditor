@@ -3,17 +3,13 @@ import base64
 import re
 import uuid
 
-from bleach import sanitizer
-from bleach._vendor import html5lib
-from bleach._vendor.html5lib import treebuilders, treewalkers, serializer
-from bleach._vendor.html5lib.constants import namespaces
 from django.utils.module_loading import import_string
 from django.utils.six import BytesIO
 
-# import html5lib
-# from html5lib import serializer, treebuilders, treewalkers
-# from html5lib.constants import namespaces
-# from html5lib.filters import sanitizer
+import html5lib
+from html5lib import serializer, treebuilders, treewalkers
+from html5lib.constants import namespaces
+from html5lib.filters import sanitizer
 from PIL import Image
 
 from . import settings
