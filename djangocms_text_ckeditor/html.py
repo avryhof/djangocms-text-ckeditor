@@ -18,7 +18,14 @@ from .utils import plugin_to_tag
 
 
 def _filter_kwargs():
-    allowed_elements = getattr(sanitizer, 'allowed_elements')
+    allowed_elements = frozenset(
+            ((namespaces['html'], 'cms-plugin'), ),
+        )
+    try:
+        allowed_elements = getattr(sanitizer, 'allowed_elements')
+    except AttributeError:
+        pass
+
     kwargs = {
         'allowed_elements': allowed_elements | frozenset(
             ((namespaces['html'], 'cms-plugin'), ),
